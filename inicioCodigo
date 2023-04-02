@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>APP DE BUZZES</title>
+    <meta charset="utf-8">
+</head>
+
+
+<body>
+   <input type="button" id="boton1" value="app de buzzes">
+   <input type="button" id="boton2" value="mostrar elementos html de la app"><br>
+   <div id="app de buzzes">
+   </div>
+     <form action="ACCESO: El registro de usuario (independientemente de cuál tipo es) es obligatorio para acceder a las funciones"
+     method="get">
+
+
+</body>
+</html>
