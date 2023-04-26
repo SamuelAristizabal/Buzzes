@@ -1,0 +1,132 @@
+<?php
+    
+?>
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Y Registro</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Bootstrap para CSS solamente (relacion styleheet por ende es una hoja de estilos)-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+   
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <main>
+
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para entrar en la página</p>
+                    <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                </div>
+                <div class="caja__trasera-register">
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Regístrate para que puedas iniciar sesión</p>
+                    <button id="btn__registrarse">Regístrarse</button>
+                </div>
+            </div>
+
+            <!--Formulario de Login y registro-->
+            <div class="contenedor__login-register">
+                <!--Login-->
+                <form action="" class="formulario__login">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" placeholder="Correo Electronico">
+                    <input type="password" placeholder="Contraseña">
+
+      <!--ROL-->
+         <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle col-md-12" id="listica" type="button" data-bs-toggle="dropdown">
+           Elige tu rol
+          </button>
+          <ul class="dropdown-menu col-md-12">
+            <li><a class="dropdown-item" href="#">Estudiante</a></li>
+            <li><a class="dropdown-item" href="registro2.html">Administrador</a></li>
+          </ul>
+         </div>
+     <!--ROL-->
+
+       <!--Modal olvido-->
+        <label><a href="#" data-bs-toggle="modal" data-bs-target="#olvidomodal"><br>¿Olvidaste tu contraseña?</a>
+        </label>
+        <div class="modal fade" id="olvidomodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 id="exampleModalLabel">RECUPERA TU CUENTA</h3>
+              </div>
+              <div class="modal-body">
+              <p>Ingresa tu correo para encontrar tu cuenta: </p>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div> 
+              </div>
+              <div class="modal-footer">
+                <a href="#" class="btn btn-secondary col-md-12" data-bs-dismiss="modal">Seguir</a>
+              </div>
+            </div>
+          </div>
+        </div>
+       <!--olvido final-->
+                    <a href="index.html" class="btn btn-primary col-md-12">Entrar</a>
+                </form>
+
+                <!--Register-->
+                <form action="index.html" method="POST" class="formulario__register">
+                    <h2>Regístrarse</h2>
+                    <input type="text" placeholder="Nombre completo" name="Nombres" required>
+                    <input type="text" placeholder="Correo Electronico" name="Correo" required>
+                    <input type="password" placeholder="Contraseña" name="Contrasena" required>                    
+                    <input type="password" placeholder="Confirme su Contraseña" name="Contrasena" required>
+                    <input type="date" value="2005-08-17" min="1999-01-01" max="2022-10-21">
+
+    
+  <!--Modal terminos y condiciones-->
+           
+  <label> <br> Estas de acuerdo con los <a href="#" data-bs-toggle="modal" data-bs-target="#condimodal"><br>Terminos y Condiciones</a>
+  </label>
+<div class="modal fade" id="condimodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-scrollable">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5" id="staticBackdropLabel">TERMINOS Y CONDICIONES</h1>
+    </div>
+    <div class="modal-body">
+      Le solicitamos que usted, como usuario y/o visitante (ambos identificados como usuario) de este sitio web,
+     y que accede al contenido del mismo, se tome un momento para leer la información que se presenta a continuación.
+    <br><br>El acceso a esta página es manifestación inequívoca de aceptación de los términos y condiciones. Los mismos podrán ser modificados, por lo cual solicitamos al usuario ingresar y consultar estos términos y condiciones, al usar esta página, a fin de mantenerse actualizado.
+    <br>Última modificación: Abril de 2023
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success"  href="registro.html" data-bs-dismiss="modal">Acepto</button>
+    </div>
+  </div>
+</div>
+</div>
+  <!--FIN-->
+  <button>Registrarse</button>
+              </form>
+          </div>
+      </div>
+
+  </main>
+
+  <script src="js/login.js"></script>
+   <!-- El JS de bootstrap: JavaScript Bundle with Popper -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+</body>
+</html>
