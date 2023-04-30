@@ -1,28 +1,28 @@
 <?php
-    
-include('db.php');
+session_start();
 
-$NombreCompleto = $_POST['NombreCompleto'];
+include('database.php');
+
 $Correo = $_POST['Correo'];
 $Contrasena = $_POST['Contrasena'];
-$ConfContrasena = $_POST['ConfContrasena'];
 
-$consulta = "SELECT* FROM Buzzesbien where NombreCompleto ='$NombreCompleto' and Correo = '$Correo' and Contrasena = '$Contrasena' and ConfContrasena = '$ConfContrasena'";
-$resultado = mysqli_query($conexion, $consulta);
+// Validar el formato del correo electrónico
 
-$filas=mysqli_num_rows($resultado);
 
-if($filas){
-    header("location:index.html");
+// Usar declaraciones preparadas para evitar la inyección SQL
+$resultado = mysqli_query($conexion,"SELECT * FROM vivalavidasinestres WHERE Correo = '$Correo' AND Contrasena = '$Contrasena'");
+
+
+// Verificar si se encontró un usuario con los datos proporcionados
+if (mysqli_num_rows($resultado) > 0) {
+    $_SESSION['Correo'] = $Correo;
+    header("Location: ../index.php");
+    exit();
 }
 else {
-    include("registro.html");
-    ?>
-    <h1>ERROR AUTENTIFICACION</h1>
-    <?php
+    echo 'El correo electrónico o la contraseña ingresados son incorrectos.';
 }
-mysqli_free_result($resultado);
-mysqli_close($conexion);
 
-
+// Cerrar la conexión a la base de datos
+$conexion->close();
 ?>

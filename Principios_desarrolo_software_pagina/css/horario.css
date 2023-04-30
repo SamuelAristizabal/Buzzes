@@ -15,9 +15,11 @@ tr:nth-child(even) {
 }
 
 .available td:first-child {
-    color: green;
+    color: red;
 }
 
 .unavailable td:first-child {
-    color: red;
+    color: green;
 }
+
+

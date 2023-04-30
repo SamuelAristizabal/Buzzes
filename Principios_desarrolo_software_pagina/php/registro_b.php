@@ -1,13 +1,13 @@
 <?php
-
-    $NombreCompleto = $_POST['NombreCompleto'];
+include 'database.php';
+    $NombreCompleto = $_POST['Nombres'];
     $Correo = $_POST['Correo']; 
     $Contrasena = $_POST['Contrasena'];
-    $ConfContrasena = $_POST['ConfContrasena'];
+    
 
 
-    $query="INSERT INTO usuarios(NombreCompleto, Correo, Contraseña, ConfContrasena) VALUES('$NombreCompleto','$Contrasena', '$Correo','$ConfContrasena')";
-    $Verificar_Correo= mysqli_query($conexion,"SELECT * FROM usuarios WHERE CorreoElectronico='$Correo'");
+    $query="INSERT INTO vivalavidasinestres(NombreCompleto, Contrasena, Correo) VALUES('$NombreCompleto','$Contrasena', '$Correo')";
+    $Verificar_Correo= mysqli_query($conexion,"SELECT * FROM vivalavidasinestres WHERE Correo='$Correo'");
 
     /*Verificación para no repetir correo*/
 
@@ -15,7 +15,7 @@
         echo '
             <script>
                 alert("Este correo ya esta en uso, Intenta otro diferente");
-                window.location="../index.html";
+                window.location="../registro.html";
             </script>
         ';
         exit();
@@ -28,7 +28,7 @@
                 echo '
                 <script>
                     alert("El usuario ha sido registrado correctamente");
-                    window.location="../index.html";
+                    window.location="../registro.html";
                     </script>
                 ';
                 
@@ -38,7 +38,7 @@
                 echo '
                 <script>
                     alert("Error, no se ha almacenado correctamente el Usuario");
-                    window.location="../index.html";
+                    window.location="../registro.html";
                     </script>
                 ';
             }

@@ -1,8 +1,8 @@
 // Datos de ejemplo
 const busSchedule = [
-    {route: "Ruta 1", departureTime: "05:00", arrivalTime: "21:00"},
-    {route: "Ruta 2", departureTime: "09:30", arrivalTime: "10:30"},
-    {route: "Ruta 3", departureTime: "11:00", arrivalTime: "12:00"}
+    {route: "Ruta 1", departureTime: "15:00", arrivalTime: "21:00"},
+    {route: "Ruta 2", departureTime: "15:30", arrivalTime: "22:30"},
+    {route: "Ruta 3", departureTime: "23:00", arrivalTime: "00:00"}
 ];
 
 // Agregar filas a la tabla
@@ -13,7 +13,7 @@ for (const bus of busSchedule) {
     row.insertCell(1).innerHTML = bus.departureTime;
     row.insertCell(2).innerHTML = bus.arrivalTime;
 
-    // Marcar como disponible o no disponible según la hora actual
+    // Marcar como disponible si la hora actual es menor a la hora de salida
     const currentTime = new Date();
     const departureTime = new Date();
     const [departureHours, departureMinutes] = bus.departureTime.split(":");
@@ -21,7 +21,8 @@ for (const bus of busSchedule) {
     departureTime.setMinutes(departureMinutes);
     if (currentTime < departureTime) {
         row.classList.add("available");
-    } else {
+    }
+     else {
         row.classList.add("unavailable");
     }
 }
